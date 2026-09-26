@@ -1,0 +1,8 @@
+node_modules
+dist
+*.tsbuildinfo
+
+# original source photos (web copies live in public/)
+my image.png
+my photo.png
+my coding photo.png
