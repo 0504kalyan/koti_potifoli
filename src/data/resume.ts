@@ -13,7 +13,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/doppalapudi-koteswara-rao-3528b024b/',
   location: '',
   experience: '3.3',
-  resumeFile: '/Resume-Koteswara-Rao-Doppalapudi.docx',
+  resumeFile: '/Resume-Koteswara-Rao-Doppalapudi.pdf',
   currentClient: 'Unity 3D',
   // Profile photo in /public.
   photo: '/profile.png',

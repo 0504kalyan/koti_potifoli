@@ -1,6 +1,6 @@
 # Koteswara Rao Doppalapudi — Portfolio
 
-Single-page React + Vite + TypeScript site for a Workday Finance / FSCM Functional Consultant, with content from the resume in `public/Resume-Koteswara-Rao-Doppalapudi.docx`.
+Single-page React + Vite + TypeScript site for a Workday Finance / FSCM Functional Consultant, with content from the resume; the downloadable CV is `public/Resume-Koteswara-Rao-Doppalapudi.pdf`.
 
 ## Run
 

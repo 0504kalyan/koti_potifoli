@@ -35,7 +35,7 @@ Open http://localhost:5173 and leave it running. Every time you save a file, the
 | Menu labels | `src/components/Header.tsx` |
 | Colours and fonts | `src/styles.css` (top) and `index.html` |
 | Browser tab title, search description, tab icon | `index.html`, `public/favicon.svg` |
-| Profile photo and CV file | `public/profile.png`, `public/Resume-Koteswara-Rao-Doppalapudi.docx` |
+| Profile photo and CV file | `public/profile.png`, `public/Resume-Koteswara-Rao-Doppalapudi.pdf` |
 
 ---
 
@@ -162,7 +162,7 @@ Don't put real client figures here.
 Replace `public/profile.png` with your new photo **using the same file name**. A portrait (taller than wide) with a plain background works best. To use a different name or format, put the file in `public/` and set `profile.photo`, e.g. `photo: '/me.jpg',`. Set `photo: ''` to hide the photo.
 
 ### CV
-Replace `public/Resume-Koteswara-Rao-Doppalapudi.docx` with the new file **using the same name**, and every download button picks it up. To use another file (a PDF opens in any browser, a .docx needs Word), put it in `public/` and set `resumeFile`, e.g. `resumeFile: '/Koteswara-Rao-Doppalapudi-CV.pdf',`. Delete the old file from `public/`: anything in that folder can be downloaded.
+The site serves the PDF `public/Resume-Koteswara-Rao-Doppalapudi.pdf` (a PDF opens in any browser). To update it, edit the Word resume, save it as PDF (**File → Save As → PDF**), and replace that file **using the same name**; every download button picks it up. To use a different file name, put it in `public/` and set `resumeFile`, e.g. `resumeFile: '/Koteswara-Rao-Doppalapudi-CV.pdf',`. Delete the old file from `public/`: anything in that folder can be downloaded.
 
 **Privacy reminder:** your CV contains your phone number and email address. Anyone who visits the site can download it.
 
