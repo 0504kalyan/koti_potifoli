@@ -61,7 +61,9 @@ export interface PortfolioContent {
     experience: string;
     currentClient: string;
     photo: string;
+    /** The CV download. With resumeAltUrl set, visitors choose between the two formats (e.g. PDF or Word). */
     resumeUrl: string;
+    resumeAltUrl: string;
   };
   hero: { headline: string };
   about: { summary: string[]; coreConcepts: string[] };

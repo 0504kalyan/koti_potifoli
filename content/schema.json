@@ -151,7 +151,15 @@
           "type": "asset",
           "accept": "document",
           "wide": true,
-          "hint": "Every \"Download CV\" button. PDF recommended."
+          "hint": "Every \"Download CV\" button (PDF or Word)."
+        },
+        {
+          "name": "resumeAltUrl",
+          "label": "CV in another format",
+          "type": "asset",
+          "accept": "document",
+          "wide": true,
+          "hint": "Optional: the same CV as PDF or Word. When set, the Download CV buttons ask visitors which format they want."
         }
       ]
     },

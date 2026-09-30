@@ -1,5 +1,6 @@
 import { TbArrowRight, TbDownload } from 'react-icons/tb';
 import { usePortfolio } from '../content/PortfolioContext';
+import { CvDownload } from './CvDownload';
 import { ProfilePhoto } from './ProfilePhoto';
 import { ApprovalScreen, JournalScreen } from './WorkdayScreens';
 
@@ -22,9 +23,9 @@ export function Hero() {
             <a className="btn btn--accent" href="#contact">
               Get in touch <TbArrowRight aria-hidden="true" />
             </a>
-            <a className="btn btn--outline-light" href={profile.resumeUrl} download>
+            <CvDownload className="btn btn--outline-light">
               <TbDownload aria-hidden="true" /> Download CV
-            </a>
+            </CvDownload>
           </div>
           <ul className="hero__facts">
             {facts.map((f) => (

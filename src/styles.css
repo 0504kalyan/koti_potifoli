@@ -1306,3 +1306,69 @@ a.contact__item:hover {
     transition: none !important;
   }
 }
+
+/* ---------- CV format chooser ---------- */
+.cv-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav .cv-menu {
+  margin-left: 8px;
+}
+
+.nav .cv-menu .nav__cv {
+  margin-left: 0;
+}
+
+.cv-menu__list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.nav .cv-menu__list {
+  left: auto;
+  right: 0;
+}
+
+.cv-menu__title {
+  padding: 6px 10px 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cv-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cv-menu__item svg {
+  font-size: 18px;
+  color: var(--brand);
+}
+
+.cv-menu__item:hover,
+.cv-menu__item:focus-visible {
+  background: var(--tint);
+}
