@@ -146,12 +146,19 @@
           "hint": "Hero photo. A portrait with a plain background works best. Leave empty to hide."
         },
         {
+          "name": "resumeAuto",
+          "label": "Generate CV automatically from this portfolio",
+          "type": "toggle",
+          "default": true,
+          "hint": "On: every save rebuilds the CV (PDF and Word) from your profile, summary, skills, experience, expertise and education. Off: visitors download the files uploaded below."
+        },
+        {
           "name": "resumeUrl",
           "label": "CV / resume file",
           "type": "asset",
           "accept": "document",
           "wide": true,
-          "hint": "Every \"Download CV\" button (PDF or Word)."
+          "hint": "Used when automatic CV is off. PDF or Word."
         },
         {
           "name": "resumeAltUrl",
@@ -159,7 +166,7 @@
           "type": "asset",
           "accept": "document",
           "wide": true,
-          "hint": "Optional: the same CV as PDF or Word. When set, the Download CV buttons ask visitors which format they want."
+          "hint": "Optional, used when automatic CV is off: the same CV in the other format. Visitors then choose which to download."
         }
       ]
     },
