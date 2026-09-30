@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import { renderJob, resumeJobs } from './resume/generate';
 
 const root = __dirname;
 const contentFile = path.join(root, 'content/portfolio.json');
@@ -52,8 +53,47 @@ function contentVersion(): Plugin {
   };
 }
 
+/**
+ * Automatic CV (profile.resumeAuto): /Resume-<Name>.pdf and .docx built from the content. Because
+ * they are rebuilt on every deploy, a save in the admin updates the CV too. In dev they're generated
+ * on request from the current file. SITE_URL (or Vercel's production URL) is the "Portfolio:" link.
+ */
+function resumes(): Plugin {
+  const productionUrl = () =>
+    (process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') || 'https://koti-potifoli.vercel.app').replace(/\/+$/, '');
+  const jobs = (siteUrl: string) => resumeJobs(JSON.parse(readFileSync(contentFile, 'utf8')), { siteUrl });
+  const TYPES = { pdf: 'application/pdf', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' } as const;
+  return {
+    name: 'portfolio-resumes',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const m = decodeURIComponent((req.url ?? '').split('?')[0]).match(/^(\/Resume-[^/]+)\.(pdf|docx)$/);
+        if (!m) return next();
+        try {
+          const job = jobs(`http://${req.headers.host}`).find((j) => j.path === m[1]);
+          if (!job) return next();
+          const ext = m[2] as 'pdf' | 'docx';
+          const body = await renderJob(job, ext);
+          res.setHeader('Content-Type', TYPES[ext]);
+          res.setHeader('Cache-Control', 'no-store');
+          res.end(body);
+        } catch (err) {
+          next(err);
+        }
+      });
+    },
+    async generateBundle() {
+      for (const job of jobs(productionUrl())) {
+        for (const ext of ['pdf', 'docx'] as const) {
+          this.emitFile({ type: 'asset', fileName: `${job.path.slice(1)}.${ext}`, source: await renderJob(job, ext) });
+        }
+      }
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), seoFromContent(), contentVersion()],
+  plugins: [react(), seoFromContent(), contentVersion(), resumes()],
   build: {
     rollupOptions: {
       input: {

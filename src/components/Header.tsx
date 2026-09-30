@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { TbDownload, TbMenu2, TbX } from 'react-icons/tb';
 import { usePortfolio } from '../content/PortfolioContext';
+import { CvDownload } from './CvDownload';
 
 /** Page sections in scroll order; each `id` matches a <section id> in the page. */
 const sections = [
@@ -68,9 +69,9 @@ export function Header() {
               {s.label}
             </a>
           ))}
-          <a className="btn btn--primary btn--sm nav__cv" href={profile.resumeUrl} download>
+          <CvDownload className="btn btn--primary btn--sm nav__cv">
             <TbDownload aria-hidden="true" /> CV
-          </a>
+          </CvDownload>
         </nav>
 
         <button

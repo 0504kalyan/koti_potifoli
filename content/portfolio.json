@@ -17,7 +17,9 @@
     "experience": "3.3",
     "currentClient": "Unity 3D",
     "photo": "/profile.png",
-    "resumeUrl": "/Resume-Koteswara-Rao-Doppalapudi.pdf"
+    "resumeAuto": true,
+    "resumeUrl": "/uploads/Resume-Koteswara-Rao-Doppalapudi-manual.pdf",
+    "resumeAltUrl": "/uploads/Resume-Koteswara-Rao-Doppalapudi-manual.docx"
   },
   "hero": {
     "headline": "I configure and support Workday Financials end to end, from ledgers and posting rules to approvals, security, data loads and reporting."

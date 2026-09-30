@@ -1,6 +1,7 @@
 import type { IconType } from 'react-icons';
 import { TbBrandLinkedin, TbDownload, TbMail, TbMapPin, TbPhone } from 'react-icons/tb';
 import { usePortfolio } from '../content/PortfolioContext';
+import { CvDownload } from './CvDownload';
 import { SectionHeading } from './SectionHeading';
 
 type Item = { key: string; label: string; value: string; href?: string; external?: boolean; Icon: IconType };
@@ -25,16 +26,16 @@ export function useContactItems(): Item[] {
 }
 
 export function Contact() {
-  const { contact, profile } = usePortfolio();
+  const { contact } = usePortfolio();
   const contactItems = useContactItems();
   return (
     <section className="section contact" id="contact">
       <div className="container contact__grid">
         <div>
           <SectionHeading eyebrow="Contact" title="Let's talk Workday Finance" intro={contact.intro} light />
-          <a className="btn btn--accent" href={profile.resumeUrl} download>
+          <CvDownload className="btn btn--accent">
             <TbDownload aria-hidden="true" /> Download CV
-          </a>
+          </CvDownload>
         </div>
         <ul className="contact__list">
           {contactItems.map(({ key, label, value, href, external, Icon }) => {

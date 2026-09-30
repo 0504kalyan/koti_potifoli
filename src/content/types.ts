@@ -61,7 +61,11 @@ export interface PortfolioContent {
     experience: string;
     currentClient: string;
     photo: string;
+    /** On: the CV links serve the CV the build generates from this content (resume/generate.ts). */
+    resumeAuto: boolean;
+    /** The uploaded CV, used when resumeAuto is off. With resumeAltUrl set, visitors choose between the two formats (e.g. PDF or Word). */
     resumeUrl: string;
+    resumeAltUrl: string;
   };
   hero: { headline: string };
   about: { summary: string[]; coreConcepts: string[] };
