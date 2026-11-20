@@ -14,6 +14,8 @@ How to add, update and delete anything on Koteswara Rao Doppalapudi's portfolio,
 2. If your account manages more than one portfolio, choose **Koteswara Rao Doppalapudi** (or switch with the **Portfolio** menu at the top of the sidebar). A Koti-only account goes straight to this portfolio.
 3. The menu lists this portfolio's sections: Profile, Hero & SEO, Modules, Processes, Expertise, Experience, Skills, About & Education, Contact.
 
+The account's portfolio access is enforced by the Admin server. With Koti selected, Save, Delete, Restore, uploads and Version History operate on Koti's content and repository only; the site's own build then publishes the change. Pavan's portfolio remains separate.
+
 ## 1. Add something
 
 Example: a new module tile.

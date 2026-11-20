@@ -2,7 +2,7 @@
 
 React 18 + Vite + TypeScript one-page portfolio for a Workday FSCM Functional Consultant.
 
-Content is managed from the separate **Portfolio Admin** app (`D:\Mine\Portfolio\portfolio-admin`, its own repository and Vercel project), which also manages Pavan's portfolio. This repository has no admin code, no API and no secrets, and there is no database: all content lives in [`content/portfolio.json`](content/portfolio.json), and the admin edits it by committing to this repository, which redeploys the site. How to add, update and delete content: [CONTENT-GUIDE.md](CONTENT-GUIDE.md).
+Content is managed from the separate **Portfolio Admin** app (its own repository and Vercel project), which also manages Pavan's portfolio. This repository has no admin code, no API and no secrets, and there is no database: all content lives in [`content/portfolio.json`](content/portfolio.json), and the admin edits it by committing to this repository, which redeploys the site. How to add, update and delete content: [CONTENT-GUIDE.md](CONTENT-GUIDE.md).
 
 ## What connects this site to the admin
 
@@ -13,6 +13,10 @@ Content is managed from the separate **Portfolio Admin** app (`D:\Mine\Portfolio
 | `preview.html`, `src/preview.tsx` | Renders the page with unsaved content sent from the admin (its Preview button), scrolled to the section being edited. Accepts messages only from `VITE_ADMIN_ORIGIN`. |
 | `/version.json` | Emitted at build time (`vite.config.ts`): the content file's Git blob SHA, so the admin can show when a save is live. |
 | `src/content/` | Types and `usePortfolio()`: the only place components get content from. |
+
+## Admin account isolation
+
+The Admin authenticates each account against its server-side portfolio permissions. A Koti-only account is routed directly to this portfolio; an account with access to multiple portfolios must select Koti before editing. Every save, restore, upload and version-history request is scoped to the selected portfolio and its schema. For Koti, that means commits go to `0504kalyan/koti_potifoli`, updating this site's `content/portfolio.json` and triggering this site's deployment; Pavan's content and deployment are separate.
 
 **Adding a new field:** add it to `content/schema.json` (so the admin shows and keeps it) and `src/content/types.ts`, then use it in a component. Fields that aren't in the schema are dropped when the admin saves.
 
